@@ -1,9 +1,12 @@
+import org.apache.logging.log4j.Level;
+import org.apache.logging.log4j.core.config.Configurator;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
-import org.junit.jupiter.params.provider.ValueSource;
 import org.mockito.MockedStatic;
 import org.mockito.Mockito;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.Arrays;
 import java.util.stream.Stream;
@@ -14,6 +17,10 @@ class HorseTest {
 
     public static final String[] ILLEGAL_NAMES =
             {"", " ", "\t", "\r", "\n", "\f"};
+    private static final Logger logger = LoggerFactory.getLogger(Horse.class);
+    static {
+        Configurator.setLevel(logger.getName(), Level.OFF);
+    }
 
     @Test
     void constructorWhenFirstParamNullThenThrowIAE() {
