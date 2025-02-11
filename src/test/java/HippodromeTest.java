@@ -64,4 +64,12 @@ class HippodromeTest {
         }
     }
 
+    @Test
+    void getWinner() {
+        Horse horse1 = new Horse("Horse1", 10, 10);
+        Horse horse2 = new Horse("Horse2", 10, 100);
+        hippodrome = new Hippodrome(List.of(horse1, horse2));
+        assertEquals(horse2, hippodrome.getWinner());
+    }
+
 }
