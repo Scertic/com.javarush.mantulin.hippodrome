@@ -1,6 +1,7 @@
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
+import org.junit.jupiter.params.provider.ValueSource;
 import org.mockito.MockedStatic;
 import org.mockito.Mockito;
 
@@ -131,6 +132,14 @@ class HorseTest {
             horse.move();
             assertEquals(newDistance, horse.getDistance());
         }
+    }
+
+    @Test
+    void getRandomDoubleBetweenParams() {
+        double a = 0.1;
+        double b = 0.5;
+        double randomDouble = Horse.getRandomDouble(0.1, 0.5);
+        assertTrue(randomDouble >= a && randomDouble < b);
     }
 
 }

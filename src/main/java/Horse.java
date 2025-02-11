@@ -29,7 +29,7 @@ public class Horse {
         this.name = name;
         this.speed = speed;
         this.distance = distance;
-        logger.error("Создание Horse, имя [{}}], скорость [{}}]", name, distance);
+        logger.error("Создание Horse, имя [{}], скорость [{}]", name, distance);
     }
 
     public Horse(String name, double speed) {
