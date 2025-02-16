@@ -1,5 +1,9 @@
+import org.apache.logging.log4j.Level;
+import org.apache.logging.log4j.core.config.Configurator;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,6 +12,12 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class HippodromeTest {
     Hippodrome hippodrome;
+    private static final Logger logger = LoggerFactory.getLogger(Hippodrome.class);
+    private static final Logger logger2 = LoggerFactory.getLogger(Horse.class);
+    static {
+        Configurator.setLevel(logger.getName(), Level.OFF);
+        Configurator.setLevel(logger2.getName(), Level.OFF);
+    }
 
     @Test
     void constructorParamNullThenIAE() {
